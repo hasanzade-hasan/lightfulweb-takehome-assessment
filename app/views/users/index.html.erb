@@ -1,42 +1,47 @@
-<h1>New User Request</h1>
-<% if notice %>
-  <div><%= notice %></div>
-<% end %>
+<div class="container">
+  <h1 class="text-center">New User Request</h1>
+  <% if notice %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= notice %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
 
-<%= form_with model: @user do |form| %>
-  <div>
-    <%= form.label :firstname, "First name:" %><br>
-    <%= form.text_field :firstname %>
-    <% @user.errors.full_messages_for(:firstname).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+  <%= form_with model: @user do |form| %>
+    <div class="mb-3">
+      <%= label_tag("user[firstname]", "First name", class: "form-label") %>
+      <%= text_field(:user, :firstname, class: "form-control", placeholder: 'First name') %>
+      <% @user.errors.full_messages_for(:firstname).each do |message| %>
+        <div class="small text-danger"><%= message %></div>
+      <% end %>
+    </div>
 
-  <div>
-    <%= form.label :lastname, "Last name:" %><br>
-    <%= form.text_field :lastname %>
-    <% @user.errors.full_messages_for(:lastname).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+    <div class="mb-3">
+      <%= label_tag("user[lastname]", "Last name", class: "form-label") %>
+      <%= text_field(:user, :lastname, class: "form-control", placeholder: 'Last name') %>
+      <% @user.errors.full_messages_for(:lastname).each do |message| %>
+        <div class="small text-danger"><%= message %></div>
+      <% end %>
+    </div>
 
-  <div>
-    <%= form.label :birthdate, "Date of Birth:" %><br>
-    <%= form.date_field :birthdate %>
-    <% @user.errors.full_messages_for(:birthdate).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+    <div class="mb-3">
+      <%= label_tag("user[birthdate]", "Date of Birth", class: "form-label") %>
+      <%= date_field(:user, :birthdate, class: "form-control") %>
+      <% @user.errors.full_messages_for(:birthdate).each do |message| %>
+        <div class="small text-danger"><%= message %></div>
+      <% end %>
+    </div>
 
-  <div>
-    <%= form.label :url, "A URL to post this information to:" %><br>
-    <%= form.url_field :url %>
-    <% @user.errors.full_messages_for(:url).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+    <div class="mb-3">
+      <%= label_tag("user[url]", "A URL to post this information to", class: "form-label") %>
+      <%= text_field(:user, :url, class: "form-control", placeholder: 'URL') %>
+      <% @user.errors.full_messages_for(:url).each do |message| %>
+        <div class="small text-danger"><%= message %></div>
+      <% end %>
+    </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div class="mb-3 text-center">
+      <%= submit_tag("Save", class: "btn btn-primary") %>
+    </div>
+  <% end %>
+</div>
