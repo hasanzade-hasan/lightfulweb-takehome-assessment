@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Deployed to: _Heroku_ - https://lightfulweb-takehome.herokuapp.com/
 
-Things you may want to cover:
+Mock API URL to make sure it works as expected: https://lightfulweb.free.beeceptor.com/users
+\
+Request can be watched here: https://beeceptor.com/console/lightfulweb
 
-* Ruby version
+Background job is implemented using `delayed_job`
 
-* System dependencies
+Development DB: `sqlite` \
+Production DB: `postgresql`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+\
+_Incomplete tasks:_ 
+* testing
+* automated deployment
